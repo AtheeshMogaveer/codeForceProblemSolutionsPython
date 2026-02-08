@@ -5,10 +5,7 @@ listArray = [int(element) for element in strArray]
 i=0
 while i < len(listArray):
     cloneArray=listArray[i:i+listArray[i]+3]
-    print(cloneArray)
-    tot=0
-    if cloneArray[1]==sum(cloneArray[3:])  or cloneArray[1]==sum(cloneArray[3:])+cloneArray[2]: 
-        cloneArray[len(cloneArray)-1]=cloneArray[2]
+    if cloneArray[1]>=sum(cloneArray[3:]) and (cloneArray[1]-sum(cloneArray[3:]))%cloneArray[2]==0: 
         print("YES")
     else:
         print("NO")
