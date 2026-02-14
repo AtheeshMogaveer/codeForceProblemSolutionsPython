@@ -1,26 +1,25 @@
 import sys
 
-stringArray=sys.stdin.read().split()[1:]
+input_data = sys.stdin.read().split()
+if not input_data:
+    exit()
 
-for i in range(0,len(stringArray),2):
-    mCondition=False
-    eCondition=False
-    oCondition=False
-    wCondition=False
-    lower=stringArray[i+1].lower()
-    for j in lower:
-        if j=="m":
-            mCondition=True
-        if j=="e" and mCondition:
-            eCondition=True
-        if j=="o" and eCondition:
-            oCondition=True
-        if j=="w" and oCondition:
-            wCondition=True
-        if j!="m" and j!="e" and j!="o" and j!="w": 
-            wCondition=False
-            break
-    if wCondition:
+t = int(input_data[0])
+pointer = 1
+
+for _ in range(t):
+    n = int(input_data[pointer])
+    s = input_data[pointer + 1].lower()
+    pointer += 2
+    
+    result = ""
+    if n > 0:
+        result = s[0]
+        for i in range(1, n):
+            if s[i] != s[i-1]:
+                result += s[i]
+    
+    if result == "meow":
         print("YES")
     else:
         print("NO")
